@@ -35,7 +35,18 @@ public class MathUtilsTest {
     }
 
     @Test
-    @DisplayName("Testing divide method") // a display name on the test console
+    @DisplayName("Testing multiply method with multiple assertions")
+    void testMultiply() {
+        // tests the method with multiple assertions
+        assertAll(
+                () -> assertEquals(4, mathUtils.multiply(2, 2), "The multipy() method should return the product of the two arguments."),
+                () -> assertEquals(6, mathUtils.multiply(3, 2), "The multipy() method should return the product of the two arguments."),
+                () -> assertEquals(8, mathUtils.multiply(4, 2), "The multipy() method should return the product of the two arguments.")
+        );
+    }
+
+    @Test
+    @DisplayName("Testing divide exception method") // a display name on the test console
     @Disabled // won't run failing tests because they avoid the application to run
     void testDivideException() {
         assertThrows(ArithmeticException.class, () -> mathUtils.divide(2, 1), "Division by 0 should return ArithmeticException.");
