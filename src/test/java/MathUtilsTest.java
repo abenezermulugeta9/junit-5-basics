@@ -12,7 +12,7 @@ public class MathUtilsTest {
     * @BeforeAll
     * @AfterAll
     *
-     * @BeforeEach
+    * @BeforeEach
     * @AfterEach
     * */
     @BeforeEach
@@ -20,12 +20,14 @@ public class MathUtilsTest {
         this.mathUtils = new MathUtils();
     }
 
+    // This lifecycle hook method needs to be static
     @AfterAll
     static void cleanUp() {
         System.out.println("Cleaning up....");
     }
 
     @Test
+    @DisplayName("Testing add method") // a display name on the test console
     void testAdd() {
         int expectedResult = 3;
         int actualResult = mathUtils.add(1, 2);
@@ -33,11 +35,14 @@ public class MathUtilsTest {
     }
 
     @Test
+    @DisplayName("Testing divide method") // a display name on the test console
+    @Disabled // won't run failing tests because they avoid the application to run
     void testDivideException() {
         assertThrows(ArithmeticException.class, () -> mathUtils.divide(2, 1), "Division by 0 should return ArithmeticException.");
     }
 
     @Test
+    @DisplayName("Testing computeCircleArea method") // a display name on the test console
     void testComputeCircleArea() {
         assertEquals(314.1592653589793, mathUtils.computeCircleArea(10), "The computeCircleArea() method should calculate and return the right area.");
     }
