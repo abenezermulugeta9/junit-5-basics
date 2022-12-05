@@ -23,7 +23,7 @@ public class MathUtilsTest {
     // This lifecycle hook method needs to be static
     @AfterAll
     static void cleanUp() {
-        System.out.println("Cleaning up....");
+        System.out.println("AfterAll - Cleaning up....");
     }
 
     @Nested
@@ -44,8 +44,6 @@ public class MathUtilsTest {
             assertEquals(expected, actualResult, "The add() method should return the addition of the two arguments.");
         }
     }
-
-
 
     @Test
     @DisplayName("Testing multiply method with multiple assertions")
