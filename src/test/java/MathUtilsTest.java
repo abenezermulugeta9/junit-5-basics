@@ -26,13 +26,26 @@ public class MathUtilsTest {
         System.out.println("Cleaning up....");
     }
 
-    @Test
-    @DisplayName("Testing add method") // a display name on the test console
-    void testAdd() {
-        int expectedResult = 3;
-        int actualResult = mathUtils.add(1, 2);
-        assertEquals(expectedResult, actualResult, "The add() method should return the addition of the two arguments.");
+    @Nested
+    class AddTest {
+        @Test
+        @DisplayName("Testing add method with positive numbers") // a display name on the test console
+        void testAddPositive() {
+            int expectedResult = 3;
+            int actualResult = mathUtils.add(1, 2);
+            assertEquals(expectedResult, actualResult, "The add() method should return the addition of the two arguments.");
+        }
+
+        @Test
+        @DisplayName("Testing add method with negative numbers")
+        void testAddNegative() {
+            int expected = -2;
+            int actualResult = mathUtils.add(-1, -1);
+            assertEquals(expected, actualResult, "The add() method should return the addition of the two arguments.");
+        }
     }
+
+
 
     @Test
     @DisplayName("Testing multiply method with multiple assertions")
